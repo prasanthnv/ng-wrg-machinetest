@@ -1,0 +1,12 @@
+.users{
+    &-list{
+        label{
+            font-weight: bold;
+        }
+    }
+    &-search{
+        &__btn{
+            margin-left: 12px;
+        }
+    }
+}

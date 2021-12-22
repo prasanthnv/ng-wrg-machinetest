@@ -1,0 +1,69 @@
+<div class="py-2">
+  <div class="users-list">
+    <div *ngIf="!searched; else searchResultContainer">
+        <div class="users-search mb-3 d-flex">
+            <input
+              type="search"
+              placeholder="Search with Name, email or phone"
+              class="form-control users-search__input"
+              [(ngModel)]="searchKey"
+            />
+            <button
+              type="button"
+              class="btn btn-primary users-search__btn"
+              (click)="searchUsers()"
+            >
+              Search
+            </button>
+          </div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of users">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold text-capitalize text-primary">
+                {{ item?.user?.name | name }}
+              </div>
+              <div class="">
+                <label for="">Email</label>: {{ item?.user?.email }}
+              </div>
+              <div class="">
+                <label for="">Phone</label>: {{ item?.user?.phone }}
+              </div>
+              <div class="text-capitalize">
+                <label for="">Gender</label>: {{ item?.user?.gender }}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    <div class="users-search-results" >
+
+    </div>
+  <ng-template #searchResultContainer>
+    <div #usersList>
+        <div class="mb-3">
+            <label>Showing results for: <strong class="text-primary">{{searchKey}}</strong></label>
+            <p>{{searchResults.length}} Results found</p>
+            <button class="btn btn-warning" (click)="clearSearch()">Clear Search</button>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of searchResults">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold text-capitalize text-primary">
+                {{ item?.user?.name | name }}
+              </div>
+              <div class="">
+                <label for="">Email</label>: {{ item?.user?.email }}
+              </div>
+              <div class="">
+                <label for="">Phone</label>: {{ item?.user?.phone }}
+              </div>
+              <div class="text-capitalize">
+                <label for="">Gender</label>: {{ item?.user?.gender }}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </ng-template>
+  </div>
+</div>
