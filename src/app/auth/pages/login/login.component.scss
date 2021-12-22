@@ -1,0 +1,17 @@
+.login{
+    &-page{
+        justify-content: center;
+        align-items: center;
+        background: var(--bg-grey);
+    }
+    &-form{
+       &-container{
+        width: 60%;
+        height: auto;
+        padding: 30px;
+        background: var( --bg-light);
+        border-radius: 20px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+       }
+    }
+}
